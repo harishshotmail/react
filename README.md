@@ -23,3 +23,9 @@ This is React Developement.
 - Tree shaking -- remove unused code
 
 // check parceljs.org for more info 
+
+
+
+//notes
+
+- jsx converts to react.createElement --> HTML(once we render)  (transpile is happening because of babel)
