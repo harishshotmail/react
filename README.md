@@ -29,3 +29,11 @@ This is React Developement.
 //notes
 
 - jsx converts to react.createElement --> HTML(once we render)  (transpile is happening because of babel)
+
+
+
+# React Hooks
+(It's just normal javascript utility function, it's written by facebook, we can findthem inside react in node_modules)
+
+    - useState --->  This helps to create super powerful react variables
+    - useEffect
