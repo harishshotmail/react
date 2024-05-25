@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 const Header = () => {
   const [status, setStatus] = useState("Login");
 
