@@ -7,12 +7,15 @@ import Cart from "./components/Cart";
 import Contactus from "./components/Contact";
 import ErrorBoundary from "./components/Error";
 import Menu from "./components/Menu";
-// import Grocery from "./components/Grocery";
+import useOnlineStatus from "./utils/useOnLineStatus";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-// import Grocery from "./components/Grocery";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 const AppLayout = () => {
+  const onlineStatus = useOnlineStatus();
+  if (!onlineStatus) {
+    return <div>Your Offline</div>;
+  }
   return (
     <div className="app">
       <Header />
@@ -50,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: "grocery",
         element: (
-          <Suspense fallback={"Waiting for Grocery component to load"}> 
+          <Suspense fallback={"Waiting for Grocery component to load"}>
             <Grocery/>
           </Suspense>
         )

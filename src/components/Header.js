@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
-import OnlineStatus from "../utils/useOnLineStatus";
+import useOnlineStatus from "../utils/useOnLineStatus";
 
 const Header = () => {
   const [status, setStatus] = useState("Login");
-  const onlineStatus = OnlineStatus();
+  const onlineStatus = useOnlineStatus();
   return (
     <div className="header">
       <div className="logo-container">
