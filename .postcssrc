@@ -1,0 +1,7 @@
+{
+  "plugins": {
+    "tailwindcss": {}
+  }
+}
+
+//we are telling parcel that we are using tailwindcss, please recognise while bundling

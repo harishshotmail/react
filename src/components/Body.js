@@ -18,18 +18,18 @@ const Body = () => {
   }
 
   return (
-    <div className="res-body">
+    <div className="res-body m-4">
       <div className="filter">
         <div className="search-bar">
-          <input
+          <input className="border border-black border-solid my-4 mr-4"
             type="text"
             onChange={(e) => {
               setSearchValue(e.target.value);
             }}
             value={searchValue}
           />
-          <button
-            className="cursor"
+          <button 
+            className="p-1 bg-green-200 border rounded-lg cursor-pointer hover:bg-green-300"
             onClick={() =>
               setFilteredList(
                 resList.filter((res) =>
@@ -42,7 +42,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="restaurant-card-container">
+      <div className="flex flex-wrap">
         {filteredList.map((res) => (
           <Link to={"/restaurant/" + res.info.id} key={res.info.id}>
             {" "}
