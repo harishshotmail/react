@@ -7,7 +7,11 @@ const RestaurantCard = (props) => {
 
   return (
     <div className="w-[250] m-2 bg-gray-100 hover:bg-gray-200 hover:cursor-zoom-in">
-      <img className="max-h-32 w-[250]" alt="" src={IMG_CLOUD_CDN + cloudinaryImageId} />
+      <img
+        className="max-h-32 w-[250]"
+        alt=""
+        src={IMG_CLOUD_CDN + cloudinaryImageId}
+      />
       <h3 className="font-bold py-2">{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRatingString} stars</h4>
@@ -15,6 +19,17 @@ const RestaurantCard = (props) => {
       <h4>{areaName}</h4>
     </div>
   );
+};
+
+export const WithPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white mx-2 p-1">Promoted</label>
+        <RestaurantCard {...props}/>
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;
