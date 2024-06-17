@@ -6,21 +6,32 @@ import Aboutus from "./components/Aboutus";
 import Cart from "./components/Cart";
 import Contactus from "./components/Contact";
 import ErrorBoundary from "./components/Error";
-import Menu from "./components/Menu";
+import RestaurantMenu from "./components/RestaurantMenu";
 import useOnlineStatus from "./utils/useOnLineStatus";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { LoggedInUserProvider } from "./utils/userContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+
 
 const Grocery = lazy(() => import("./components/Grocery"));
+
+
 const AppLayout = () => {
   const onlineStatus = useOnlineStatus();
   if (!onlineStatus) {
     return <div>Your Offline</div>;
   }
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    //store key is mandatory here
+    <Provider store = {appStore}>
+      <LoggedInUserProvider>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </LoggedInUserProvider>
+    </Provider>
   );
 };
 
@@ -48,15 +59,15 @@ const router = createBrowserRouter([
       },
       {
         path: "restaurant/:resId",
-        element: <Menu />,
+        element: <RestaurantMenu />,
       },
       {
         path: "grocery",
         element: (
           <Suspense fallback={"Waiting for Grocery component to load"}>
-            <Grocery/>
+            <Grocery />
           </Suspense>
-        )
+        ),
         // fallback is something which will help to display before content get's loaded
       },
     ],
